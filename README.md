@@ -1,4 +1,4 @@
-![ADMINISTRACIÓN DE BASE DE DATOS SQL SERVER](https://raw.githubusercontent.com/gcoronelc/SQL-SERVER-ADM-001/master/img/sql-adm.png)
+![ADMINISTRACIÓN DE BASE DE DATOS SQL SERVER](https://raw.githubusercontent.com/gcoronelc/SQL-SERVER-ADM-002/master/img/sql-adm.png)
 
 # PROGRAMADOR JAVA
 
