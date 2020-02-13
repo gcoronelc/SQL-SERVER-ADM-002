@@ -18,6 +18,7 @@
 - Correo del curso: egcc.uni@gmail.com
 - Blog: www.desarrollasoftware.com
 - Canal Youtube: https://www.youtube.com/c/DesarrollaSoftware
+- Grupo FaceBook: https://www.facebook.com/groups/desarrollasoftware/
 - UDEMY: https://github.com/gcoronelc/UDEMY
 
 # RECURSOS EN YUTUBE
