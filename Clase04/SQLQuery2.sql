@@ -39,7 +39,7 @@ go
 
 declare @k int
 set @k = 0
-while (@k < 100)
+while (@k < 10000)
 begin
 	begin tran
 	insert into perudev..test(dato) values('Backup de Base de Datos')
@@ -48,7 +48,7 @@ begin
 end
 go
 
-SELECT * FROM PERUDEV..test;
+SELECT count(1) FROM PERUDEV..test;
 GO
 
 
@@ -71,7 +71,7 @@ go
 -- Actividad del lunes
 declare @k int
 set @k = 0
-while (@k < 100)
+while (@k < 10000)
 begin
 	begin tran
 	insert into perudev..test(dato) values('Actividad del lunes.')
@@ -80,12 +80,23 @@ begin
 end
 go
 
+ALTER DATABASE perudev 
+SET RECOVERY SIMPLE
+GO
+
+use perudev
+DBCC SHRINKFILE ('perudev_log' )
+GO
+
+ALTER DATABASE perudev 
+SET RECOVERY FULL
+GO
 
 backup database perudev
 to perudev
 with
 	differential,
-	name = 'BakDif01',
+	name = 'BakDif01 X',
 	description = 'Primer (Lunes) backup diferencial dela base de datos'
 go
 
@@ -97,7 +108,7 @@ go
 -- Actividad del día
 declare @k int
 set @k = 0
-while (@k < 100)
+while (@k < 1000)
 begin
 	begin tran
 	insert into perudev..test(dato) values('(Martes) 2do. Backup Dif.')
@@ -105,6 +116,18 @@ begin
 	set @k = @k + 1
 end
 go
+
+ALTER DATABASE perudev 
+SET RECOVERY SIMPLE
+GO
+
+use perudev
+DBCC SHRINKFILE ('perudev_log' )
+GO
+
+ALTER DATABASE perudev 
+SET RECOVERY FULL
+GO
 
 
 backup database perudev
@@ -163,7 +186,7 @@ FROM perudev
 WITH file=1;
 go
 
-SELECT * FROM PERUDEV..TEST;
+SELECT COUNT(1) FROM PERUDEV..TEST;
 GO
 
 -- CASO 2:
@@ -187,7 +210,10 @@ FROM perudev
 WITH file=2, RECOVERY;
 go
 
-SELECT * FROM PERUDEV..TEST;
+SELECT COUNT(1) FROM PERUDEV..TEST;
+GO
+
+SELECT * FROM  PERUDEV..TEST;
 GO
 
 -- CASO 3: Hasta el Martes
