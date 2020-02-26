@@ -1,0 +1,5 @@
+Diseñar e implementar auditoria.
+1.- De servidor
+     Se debe justificar.
+2.- De base de datos
+     Se debe justificar.
