@@ -1,0 +1,82 @@
+USE MASTER
+GO
+
+CREATE DATABASE CLIENTES
+GO
+
+ALTER DATABASE CLIENTES
+SET RECOVERY FULL
+GO
+
+--PARA CREAR LAS COPIAS DE SEGURIDAD
+EXEC sp_addumpdevice 'disk', 'CLIENTES', 'G:\EGCC\BAK\CLIENTES.BAK'
+GO
+
+--PARA VERIFICAR
+SELECT * FROM SYS.backup_devices
+GO
+
+--CREAR UNA TABLA
+CREATE TABLE CLIENTES
+(IDCLIENTE Int Identity Primary Key,
+ NOMBRE    varchar(30),
+ APELLIDO  varchar(30),
+ DNI        varchar(8) NOTNULL)
+GO
+
+INSERT INTO CLIENTES (IDCLIENTE, NOMBRE,APELLIDO,DNI) 
+               VALUES('01','JULIO','JANAMPA','10191772')
+INSERT INTO CLIENTES (IDCLIENTE, NOMBRE,APELLIDO,DNI) 
+               VALUES('02','ALEJO','JANAMPA','10191456')
+GO
+
+--COPIA FULL BACKUP
+--LUNES POR LA MAÑANA
+BACKUP DATEBASE CLIENTES
+TO CLIENTES
+with format,
+name = 'BakBD',
+description = 'Backup de la base de datos completa'
+GO
+--VERIFICAR EL BACKUP
+restore headeronly from CLIENTES
+GO
+
+--COPIA LOG
+--COPIA DE LAS TRANSACCIONES A LA 1PM
+
+INSERT INTO CLIENTES (IDCLIENTE, NOMBRE,APELLIDO,DNI) 
+               VALUES('03','MANUEL','JANAMPA','10201762')
+GO
+
+BACKUP LOG CLIENTES
+TO CLIENTES
+with
+no_truncate,
+name = 'BakLog',
+description = 'Backup del log, DESPUES DEL ERROR.'
+GO
+--para verificar el backup diferencial
+restore headeronly from CLIENTES
+GO
+
+
+--COPIA DIFERENCIAL
+--COPIA DIFERENCIAL PROGRAMADA AL FINAL DEL DÍA
+
+INSERT INTO CLIENTES (IDCLIENTE, NOMBRE,APELLIDO,DNI) 
+               VALUES('04','CARMEN','JANAMPA','10508762')
+GO
+
+BACKUP DATABASE CLIENTES
+TO CLIENTES	
+with differential,
+name = 'BakDif01',
+description = 'Primer (lunes) backup diferencial de la base de datos'
+GO 
+
+--para verificar el backup diferencial
+restore headeronly from CLIENTES
+GO
+
+
