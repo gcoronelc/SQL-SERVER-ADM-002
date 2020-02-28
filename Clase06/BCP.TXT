@@ -1,0 +1,24 @@
+
+- Utiliza autenticación Windows
+
+  bcp edutec.dbo.Curso out G:\bcp\Curso_A.dat -T -c
+  
+- Utiliza autenticación SQL Server
+
+  bcp edutec.dbo.Curso out G:\bcp\Curso_B.dat -c -Usa -Psql
+  
+- Utilizando conexión remota
+
+  bcp edutec.dbo.Curso out G:\bcp\Curso_X.dat -S192.168.40.31,1433 -c -Usa -Psql
+  
+- Importar un archivo
+
+  bcp edutec.dbo.Curso2 in G:\bcp\Curso_B.dat -T -c
+
+  
+  
+  
+  
+  
+  
+  
