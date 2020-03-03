@@ -1,0 +1,20 @@
+
+1.- Configurar un correo de base de datos.
+    Realizar la prueba del correo.
+	
+2.- Configurar un operador en SQL Server Agent
+
+3.- Configurar la cuenta de correo en el Agente SQL Server.
+
+4.- Crear la alerta, por ejemplo una alerta de 
+    base de datos de permisos insuficientes (Error 14).
+	Debe notificar al operador creado en el paso 2.
+	
+5.- Para probar la alerta ejecute el siguiente script:
+
+	raiserror( 'Prueba de Alerta', 14, 1 ) with log;
+	go
+	
+6.- Revise su correo electronico, debe tener el mensaje 
+    de la alerta.
+	
