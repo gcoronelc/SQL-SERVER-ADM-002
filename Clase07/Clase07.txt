@@ -35,6 +35,8 @@ Este paquete se debe programar en una tarea para que
 se ejecute todas las mañanas a las 6am y enviar correo 
 si se ejecuto correctamente o con error a egcc.uni@gmail.
 
+Utilizar la transformación "División Condicional" on "Conditional Split"
+
 
 
 
