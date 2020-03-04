@@ -1,4 +1,4 @@
-CASO 01
+﻿CASO 01
 -----------------------------------------------
 Exportar la tabla EDUTEC.DBO.CURSO
 a la base de datoa DEMO.DBO.TBL_CURSO
@@ -18,7 +18,7 @@ Se debe programar una tarea para que se
 ejecute todos los días a las 6am.
 
 Enviar correo si la tarea se ejecuta bien 
-a egcc.uni@gmail.com
+a tu.correo@gmail.com
 
 
 TAREA

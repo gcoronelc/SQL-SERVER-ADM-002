@@ -7,10 +7,14 @@
 	Operador: EGCC-OPERADOR
 	
 3.- Configurar la cuenta de correo en el Agente SQL Server.
+    Perfil: PERFIL-EGCC
+	Operador: EGCC-OPERADOR
 
 4.- Crear la alerta, por ejemplo una alerta de 
     base de datos de permisos insuficientes (Error 14).
 	Debe notificar al operador creado en el paso 2.
+	Alerta: PERMISOS INSUFICIENTES
+	Operador: EGCC-OPERADOR
 	
 5.- Para probar la alerta ejecute el siguiente script:
 
