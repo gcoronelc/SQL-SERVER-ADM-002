@@ -1,9 +1,11 @@
 
 1.- Configurar un correo de base de datos.
     Realizar la prueba del correo.
+	Perfil: PERFIL-EGCC
 	
 2.- Configurar un operador en SQL Server Agent
-
+	Operador: EGCC-OPERADOR
+	
 3.- Configurar la cuenta de correo en el Agente SQL Server.
 
 4.- Crear la alerta, por ejemplo una alerta de 
