@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>EDUTECDataSource</DataSourceReference>
+      <CommandText>SELECT 
+	IdCiclo CICLO,
+	IdCurso "CODIGO CURSO",
+	NomCurso "NOMBRE CURSO",
+	Secciones, Matriculados, Ingresos
+FROM DBO.V_RESUMEN_VENTAS
+ORDER BY 1, 2
+</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="CICLO">
+        <DataField>CICLO</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CODIGO_CURSO">
+        <DataField>CODIGO CURSO</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NOMBRE_CURSO">
+        <DataField>NOMBRE CURSO</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SECCIONES">
+        <DataField>Secciones</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MATRICULADOS">
+        <DataField>Matriculados</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="INGRESOS">
+        <DataField>Ingresos</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

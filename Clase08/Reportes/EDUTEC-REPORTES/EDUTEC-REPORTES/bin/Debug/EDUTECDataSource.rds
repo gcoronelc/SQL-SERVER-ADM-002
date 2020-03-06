@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="EDUTECDataSource">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=PC-402-01;Initial Catalog=EduTec</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>dd4588c5-cc2b-4fe5-8bcc-0a8584e6a4f4</DataSourceID>
+</RptDataSource>

@@ -44,4 +44,23 @@ GO
 SELECT * FROM DBO.TB_RESUMEN_VENTAS;
 GO
 
+SELECT 
+	IdCiclo CICLO,
+	IdCurso "CODDIGO CURSO",
+	NomCurso "NOMBRE CURSO",
+	Secciones, Matriculados, Ingresos
+FROM DBO.TB_RESUMEN_VENTAS;
+GO
+
+
+
+
+SELECT 
+	IdCiclo CICLO,
+	IdCurso "CODIGO CURSO",
+	NomCurso "NOMBRE CURSO",
+	Secciones, Matriculados, Ingresos
+FROM DBO.V_RESUMEN_VENTAS
+ORDER BY 1;
+GO
 

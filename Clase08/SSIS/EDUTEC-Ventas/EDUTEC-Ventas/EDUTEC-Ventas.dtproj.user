@@ -4,11 +4,19 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <ServerName>PC-402-01</ServerName>
+        <PathOnServer>/SSISDB/EDUTEC/EDUTEC-Ventas</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
-        <ParameterConfigurationSensitiveValues />
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2020-03-06T01:29:36.7744189Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
       </Options>
     </Configuration>
   </Configurations>
