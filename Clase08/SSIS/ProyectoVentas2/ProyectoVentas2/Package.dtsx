@@ -1,0 +1,902 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/5/2020 7:23:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC-402-01"
+  DTS:CreatorName="CEPS-01\Administrador"
+  DTS:DTSID="{DD914F71-401D-49D2-B20F-84571842F6E7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{1C537FD8-2A3A-427D-B0D9-8B24CE8AC19E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{1429B6B7-795C-45BB-9AE2-EE0FB116B181}"
+      DTS:ObjectName="PC-402-01.DEMO_VENTAS.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PC-402-01;User ID=sa;Initial Catalog=DEMO_VENTAS;Persist Security Info=True;Application Name=SSIS-Package-{1429B6B7-795C-45BB-9AE2-EE0FB116B181}PC-402-01.DEMO_VENTAS.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5K/ul6/q7U+tOUbpSk/o+AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACmu6TsN3TEgreIp5iUB8YlAAAAAASAAACgAAAAEAAAAB/l273kUD1OyosiW1xyiGAIAAAAoDoleYk7NP0UAAAAkz0xd/UpgXgdEvqGz6vqcv+KSQU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PC-402-01.Northwind.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{E10608DB-C92C-4B08-BF40-80239480B17D}"
+      DTS:ObjectName="PC-402-01.Northwind.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PC-402-01;User ID=sa;Initial Catalog=Northwind;Persist Security Info=True;Application Name=SSIS-Package-{E10608DB-C92C-4B08-BF40-80239480B17D}PC-402-01.Northwind.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5K/ul6/q7U+tOUbpSk/o+AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABJWSx2HAcytqUI5I0NCqeUAAAAAASAAACgAAAAEAAAAHd4PRQD4eEyMovEVl1sLjEIAAAAuAi4b4y7elkUAAAAfS2GiAZ0vUS40pk4fxFYAorzYvY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ventas 02"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9CB69AC0-3605-44FE-8805-D8E087C2AD72}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ventas 02"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ventas 02\Antes del 1997"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Antes del 1997"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."VENTAS_ANTES_1997"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ventas 02\Antes del 1997.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[Quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="numeric"
+                      name="UnitPrice"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ventas 02\Antes del 1997.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Antes del 1997.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Antes del 1997.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Antes del 1997.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ventas 02\De 1997 a mas"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="De 1997 a mas"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."VENTAS_1997_ADELANTE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ventas 02\De 1997 a mas.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[OrderID]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[Quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="numeric"
+                      name="UnitPrice"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ventas 02\De 1997 a mas.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\De 1997 a mas.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ventas 02\De 1997 a mas.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\De 1997 a mas.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ventas 02\Distribución de Ventas"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Distribución de Ventas"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ventas 02\Distribución de Ventas.Outputs[Antes del 1997]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Antes del 1997"
+                  synchronousInputId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]} &lt; (DT_DBDATE)"01-01-1997"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">OrderDate &lt; (DT_DBDATE)"01-01-1997"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ventas 02\Distribución de Ventas.Outputs[Del 1997 a mas]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Del 1997 a mas"
+                  synchronousInputId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]} &gt;= (DT_DBDATE)"01-01-1997"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">OrderDate &gt;= (DT_DBDATE)"01-01-1997"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ventas 02\Distribución de Ventas.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Ventas 02\Distribución de Ventas.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas 02\Distribución de Ventas.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Distribución de Ventas.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Distribución de Ventas.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Distribución de Ventas.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ventas 02\Ventas Totales"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Ventas Totales"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	C.CustomerID, C.CompanyName, O.OrderID, O.OrderDate,
+	P.ProductName, D.UnitPrice, D.Quantity
+FROM Northwind.dbo.Customers AS C
+JOIN Northwind.dbo.Orders AS O ON C.CustomerID = O.CustomerID
+JOIN Northwind.dbo.[Order Details] AS D ON O.OrderID = D.OrderID
+JOIN Northwind.dbo.Products AS P ON D.ProductID = P.ProductID</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ventas 02\Ventas Totales.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[PC-402-01.DEMO_VENTAS.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[CompanyName]"
+                      length="40"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[OrderID]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[ProductName]"
+                      length="40"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[Quantity]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[Quantity]"
+                      dataType="i2"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ventas 02.Paths[ADO NET Source Output]"
+              endId="Package\Ventas 02\Distribución de Ventas.Inputs[Conditional Split Input]"
+              name="ADO NET Source Output"
+              startId="Package\Ventas 02\Ventas Totales.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Ventas 02.Paths[Antes del 1997]"
+              endId="Package\Ventas 02\Antes del 1997.Inputs[ADO NET Destination Input]"
+              name="Antes del 1997"
+              startId="Package\Ventas 02\Distribución de Ventas.Outputs[Antes del 1997]" />
+            <path
+              refId="Package\Ventas 02.Paths[Del 1997 a mas]"
+              endId="Package\Ventas 02\De 1997 a mas.Inputs[ADO NET Destination Input]"
+              name="Del 1997 a mas"
+              startId="Package\Ventas 02\Distribución de Ventas.Outputs[Del 1997 a mas]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Ventas 02"
+          TopLeft="125.714287855187,76.4705893077653" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ventas 02">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Ventas 02\Ventas Totales"
+          TopLeft="124.571430692867,9.78823543139395" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Ventas 02\Distribución de Ventas"
+          TopLeft="109.714287582709,91.1529424548562" />
+        <EdgeLayout
+          Id="Package\Ventas 02.Paths[ADO NET Source Output]"
+          TopLeft="199.942859137788,51.388235431394">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7647070234622"
+              Start="0,0"
+              End="0,32.2647070234622">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2647070234622" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Ventas 02\Antes del 1997"
+          TopLeft="24.0000004087176,202.494120486962" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Ventas 02\De 1997 a mas"
+          TopLeft="254.857147197334,198.964707752743" />
+        <EdgeLayout
+          Id="Package\Ventas 02.Paths[Antes del 1997]"
+          TopLeft="201.714287582709,132.752942454856">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.314287173991,69.7411780321062"
+              Start="0,0"
+              End="-103.314287173991,62.2411780321062">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8705890160531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.8705890160531"
+                    Point2="0,34.8705890160531"
+                    Point3="-4,34.8705890160531" />
+                  <mssgle:LineSegment
+                    End="-99.3142871739914,34.8705890160531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99.3142871739914,34.8705890160531"
+                    Point2="-103.314287173991,34.8705890160531"
+                    Point3="-103.314287173991,38.8705890160531" />
+                  <mssgle:LineSegment
+                    End="-103.314287173991,62.2411780321062" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-85.4103857744957,39.8705890160531,67.506484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ventas 02.Paths[Del 1997 a mas]"
+          TopLeft="231.047620916042,132.752942454856">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.6095262812919,66.2117652978864"
+              Start="0,0"
+              End="98.6095262812919,58.7117652978864">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8271807672471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8271807672471"
+                    Point2="0,26.8271807672471"
+                    Point3="4,26.8271807672471" />
+                  <mssgle:LineSegment
+                    End="94.6095262812919,26.8271807672471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.6095262812919,26.8271807672471"
+                    Point2="98.6095262812919,26.8271807672471"
+                    Point3="98.6095262812919,30.8271807672471" />
+                  <mssgle:LineSegment
+                    End="98.6095262812919,58.7117652978864" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.307185015646,31.8271807672471,69.99515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ventas 02\Ventas Totales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ventas 02\Antes del 1997">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ventas 02\De 1997 a mas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
