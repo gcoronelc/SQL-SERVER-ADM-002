@@ -4,19 +4,11 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <ServerName>PC-402-01</ServerName>
-        <PathOnServer>/SSISDB/DISTRIBUCION VENTAS/ProyectoVentas2</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
-        <ParameterConfigurationSensitiveValues>
-          <ConfigurationSetting>
-            <Id>LastModifiedTime</Id>
-            <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2020-03-06T00:42:42.2934845Z</Value>
-          </ConfigurationSetting>
-        </ParameterConfigurationSensitiveValues>
+        <ParameterConfigurationSensitiveValues />
       </Options>
     </Configuration>
   </Configurations>
